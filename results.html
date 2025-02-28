@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SME Diagnostic Tool - Results</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="results.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>SME Diagnostic Tool</h1>
+            <p>Your Business Assessment Results</p>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="questionnaire.html">Assessment</a></li>
+                    <li><a href="profile.html" id="profile-link">Profile</a></li>
+                    <li><a href="login.html" id="login-link">Login</a></li>
+                    <li><a href="#" id="logout-link" style="display: none;">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="results-container">
+            <div class="results-header">
+                <h2>Assessment Results</h2>
+                <p>Based on your responses, we've analyzed your business's current development stage.</p>
+            </div>
+
+            <div class="score-summary">
+                <div class="overall-score">
+                    <div class="score-circle">
+                        <span id="total-score">0</span>
+                    </div>
+                    <h3>Overall Score</h3>
+                    <p id="development-level">Loading...</p>
+                </div>
+
+                <div class="level-description">
+                    <h3>What This Means</h3>
+                    <p id="level-explanation">Loading your results...</p>
+                </div>
+            </div>
+
+            <div class="section-scores">
+                <h3>Section Breakdown</h3>
+                <div class="score-bars">
+                    <div class="score-bar-item">
+                        <div class="score-label">Business Setup</div>
+                        <div class="score-bar-container">
+                            <div class="score-bar" id="section1-bar"></div>
+                            <span class="score-value" id="section1-score">0%</span>
+                        </div>
+                    </div>
+                    <div class="score-bar-item">
+                        <div class="score-label">Finance</div>
+                        <div class="score-bar-container">
+                            <div class="score-bar" id="section2-bar"></div>
+                            <span class="score-value" id="section2-score">0%</span>
+                        </div>
+                    </div>
+                    <div class="score-bar-item">
+                        <div class="score-label">Marketing</div>
+                        <div class="score-bar-container">
+                            <div class="score-bar" id="section3-bar"></div>
+                            <span class="score-value" id="section3-score">0%</span>
+                        </div>
+                    </div>
+                    <div class="score-bar-item">
+                        <div class="score-label">Operations</div>
+                        <div class="score-bar-container">
+                            <div class="score-bar" id="section4-bar"></div>
+                            <span class="score-value" id="section4-score">0%</span>
+                        </div>
+                    </div>
+                    <div class="score-bar-item">
+                        <div class="score-label">Human Resources</div>
+                        <div class="score-bar-container">
+                            <div class="score-bar" id="section5-bar"></div>
+                            <span class="score-value" id="section5-score">0%</span>
+                        </div>
+                    </div>
+                    <div class="score-bar-item">
+                        <div class="score-label">Innovation</div>
+                        <div class="score-bar-container">
+                            <div class="score-bar" id="section6-bar"></div>
+                            <span class="score-value" id="section6-score">0%</span>
+                        </div>
+                    </div>
+                    <div class="score-bar-item">
+                        <div class="score-label">Financial Systems</div>
+                        <div class="score-bar-container">
+                            <div class="score-bar" id="section7-bar"></div>
+                            <span class="score-value" id="section7-score">0%</span>
+                        </div>
+                    </div>
+                    <div class="score-bar-item">
+                        <div class="score-label">Market Access</div>
+                        <div class="score-bar-container">
+                            <div class="score-bar" id="section8-bar"></div>
+                            <span class="score-value" id="section8-score">0%</span>
+                        </div>
+                    </div>
+                    <div class="score-bar-item">
+                        <div class="score-label">ESG Integration</div>
+                        <div class="score-bar-container">
+                            <div class="score-bar" id="section9-bar"></div>
+                            <span class="score-value" id="section9-score">0%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="results-visualization">
+                <div class="results-tabs">
+                    <button class="tab-button active" data-tab="bar-chart">Bar Chart</button>
+                    <button class="tab-button" data-tab="radar-chart">Radar Chart</button>
+                    <button class="tab-button" data-tab="table-view">Table View</button>
+                </div>
+                
+                <div class="tab-content" id="bar-chart-tab">
+                    <!-- Bar chart is already displayed above -->
+                    <p class="tab-description">This bar chart shows your performance in each business dimension as a percentage.</p>
+                </div>
+                
+                <div class="tab-content" id="radar-chart-tab" style="display: none;">
+                    <div class="radar-chart-container">
+                        <canvas id="radar-chart"></canvas>
+                    </div>
+                    <p class="tab-description">This radar chart shows your performance across all business dimensions, highlighting strengths and areas for improvement.</p>
+                </div>
+                
+                <div class="tab-content" id="table-view-tab" style="display: none;">
+                    <div class="results-table-container">
+                        <table class="results-table">
+                            <thead>
+                                <tr>
+                                    <th>Business Dimension</th>
+                                    <th>Total Possible Points</th>
+                                    <th>Points Scored</th>
+                                    <th>Average Score (%)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="results-table-body">
+                                <!-- Table rows will be populated by JavaScript -->
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Overall</th>
+                                    <th id="total-possible-points">-</th>
+                                    <th id="total-points-scored">-</th>
+                                    <th id="total-average-score">-</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <p class="tab-description">This table provides a detailed breakdown of your scores across all business dimensions.</p>
+                </div>
+            </div>
+
+            <div class="recommendations">
+                <h3>Recommendations</h3>
+                <div id="recommendations-list">
+                    <p>Loading recommendations...</p>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <a href="questionnaire.html" class="btn btn-secondary">Retake Assessment</a>
+                <button id="export-results" class="btn btn-primary">Export Results</button>
+                <button id="view-interventions" class="btn btn-primary">View Interventions</button>
+                <a href="index.html" class="btn btn-secondary">Back to Home</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Interventions Modal -->
+    <div id="interventions-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Intervention Highlights</h2>
+            <div class="interventions-container">
+                <h3 id="interventions-title">Level Title</h3>
+                <p class="score-range"><strong>Score Range:</strong> <span id="interventions-score-range">0-0 points</span></p>
+                
+                <div class="objective-section">
+                    <h4>Objective</h4>
+                    <p id="interventions-objective">Objective text will appear here.</p>
+                </div>
+                
+                <h4>Areas of Intervention</h4>
+                <div id="interventions-areas-list">
+                    <!-- Areas will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 SME Diagnostic Tool. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script src="results.js"></script>
+</body>
+</html> 

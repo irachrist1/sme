@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SME Diagnostic Tool - Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>SME Diagnostic Tool</h1>
+            <p>Login to access your account</p>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="questionnaire.html">Assessment</a></li>
+                    <li><a href="profile.html" id="profile-link">Profile</a></li>
+                    <li><a href="login.html" id="login-link" class="active">Login</a></li>
+                    <li><a href="#" id="logout-link" style="display: none;">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="auth-container">
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-tab="login">Login</button>
+                <button class="auth-tab" data-tab="register">Register</button>
+            </div>
+
+            <div class="auth-content">
+                <!-- Login Form -->
+                <form id="login-form" class="auth-form active">
+                    <h2>Login to Your Account</h2>
+                    
+                    <div class="form-group">
+                        <label for="login-email">Email</label>
+                        <input type="email" id="login-email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" name="password" required>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </div>
+                </form>
+
+                <!-- Registration Form -->
+                <form id="register-form" class="auth-form">
+                    <h2>Create an Account</h2>
+                    
+                    <div class="form-group">
+                        <label for="register-business-name">Business Name</label>
+                        <input type="text" id="register-business-name" name="businessName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="register-email">Email</label>
+                        <input type="email" id="register-email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="register-password">Password</label>
+                        <input type="password" id="register-password" name="password" required minlength="6">
+                        <div class="password-hint">Password must be at least 6 characters long</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="register-confirm-password">Confirm Password</label>
+                        <input type="password" id="register-confirm-password" name="confirmPassword" required>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 SME Diagnostic Tool. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script src="login.js"></script>
+</body>
+</html> 
